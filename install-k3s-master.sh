@@ -13,7 +13,7 @@ echo "[+] Installing required packages..."
 apt update && apt install -y curl apt-transport-https ca-certificates
 
 echo "[+] Installing k3s master node (version $K3S_VERSION)..."
-curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=$K3S_VERSION INSTALL_K3S_EXEC="server --cluster-init --write-kubeconfig-mode 644 --flannel-iface eth0 --cluster-cidr $CLUSTER_CIDR" sh -
+curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=$K3S_VERSION INSTALL_K3S_EXEC="server --cluster-init --write-kubeconfig-mode 644 --cluster-cidr $CLUSTER_CIDR" sh -
 
 echo "[+] Saving join token to /root/k3s_token..."
 cp /var/lib/rancher/k3s/server/node-token /root/k3s_token
